@@ -1,0 +1,6 @@
+[submodule "OSVR-Installer"]
+	path = OSVR-Installer
+	url = https://github.com/VR-Moria/OSVR-Installer.git
+[submodule "umoria"]
+	path = umoria
+	url = https://github.com/VR-Moria/umoria.git
