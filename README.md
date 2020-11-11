@@ -39,4 +39,5 @@ These instructions have been verified to work on Windows 10 as of 8 Nov 2020.
 # Acknowledgements
 We would like to thank Russell Taylor for his support in this project, both for his contributions to OSVR and for his help and advice during development of this project. We would also like to thank Michelle Farmer for her mentorship and support throughout this process, as well as Professor Jeffery Terrell for his teachings in project management. 
 
-# [Project Website](https://tarheels.live/comp523vrmoria)
+# Project Website
+https://tarheels.live/comp523vrmoria
