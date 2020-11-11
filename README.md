@@ -33,6 +33,20 @@ These instructions have been verified to work on Windows 10 as of 8 Nov 2020.
 # Contributing
 
 # Authors
+⋅⋅* VR-Moria
+⋅⋅* Roshni Pasupula
+Bryce Koester
+Emily Troutman
+OSVR	
+Russell Taylor
+Relia-Solve Organization
+UMoria
+Michael R. Cook
+Sebastian Martin Dicke
+Stefan Strogin
+Russell Taylor
+Henrik Grimler
+Eli the Bearded
 
 # License
 
