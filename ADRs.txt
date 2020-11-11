@@ -1,0 +1,32 @@
+Architecture Design
+ 
+MULTITHREADING LIBRARY
+summary: in order to communicate between the umoria command line game and the osvr software, we will use a multithreading library for C++
+Problem: we need to run umoria and the osvr server + render program simultaneously, and they need to communicate in real time
+Constraints: the target platform is windows, so windows support is required.
+Options: The two options for communicating between the two programs are multithreading and pipelining. The benefit of multithreading is that threads can be generated from inside umoria and can directly access information like inventory, health, stats, etc. The drawback is that it is more difficult to understand conceptually than pipelining, and no member has experience using them. The benefit of pipelining is that it is conceptually easier to comprehend, simply parse the terminal output of umoria into something the osvr software can use. The drawback is that the player stats and inventory cannot be accessed as easily as in threading, and it may be difficult to distinguish between characters that make up the map and characters that make up menus/instructions/dialogues/etc. In addition, a pipelining solution cannot easily be multi-platform, because the windows pipelining system is very different from the macOS/Linux system.
+Rationale: we chose to use multithreading because the client communicated that pipelining may not be feasible on windows due to the pdcurses output of umoria. In addition, a multithreading option would be easiest to extend to support additional platforms (if time permits). 
+ 
+ 
+OSVR EXECUTABLES AND OPENGL LIBRARY FOR RENDERING VR EXP
+summary: in order to generate and display the VR environment to the oculus rift dk2 hmd, we will use the provided OSVR which uses the openGL API for rendering the environment
+Problem: We need a program that can run the files we write, and render them into a 3D environment for virtual reality
+Constraints: Our client requested that we use OSVR and openGL
+Options: OSVR is open source and available on github, and since our client helped create it he is able to help us understand the program and its functionality. The only downside of using OSVR is that it does not have a lot of up-to-date support, as it is not currently widely used. Another option we considered was using an OSVR plugin for Unreal Engine. Although Unreal has more up-to-date documentation and support, it would be difficult to get it to work with the OSVR plugin. 
+Rationale: We decided to use OSVR and openGL since we know that they work well together and our client is willing to offer support specifically related to OSVR issues.
+ 
+C++
+Summary: in order to use the above technologies and as per the client's wishes, we will be programming in C++
+Problem: We must create a modified version of an existing game Umoria that has both a command line interface and a VR interface.
+Constraints: the project must extend an existing codebase that is written in C++, so C++ is mandatory.
+Options: We must use c++
+Rationale: We have chosen c++ so that the modifications and the umoria source code can be compiled together.           	
+ 
+Project will only be deployed through github
+Summary: In order to allow our users to access our final version of VR Moria, we will have our code published in a public GitHub repository for users to clone and build.
+Problem: We need an effective way for our users to be able to run VR Moria on their local machine. The final program needs to be compatible with the machine that it is running on, so that the user can successfully build and run the program.
+Constraints: We likely won’t have the time or resources to construct an MSI installer for the project. 
+Options: Deploying an MSI installer would benefit the users because it would only require them to download the MSI and run the executable, however it is impractical for our project given the time constraints. Deploying to github will be more difficult for users because they will need to clone the repository and build it, but will allow us to continuously make changes up until the point we are ready to deploy.
+Rationale: Given our time constraints on this project, we have chosen to deploy our project to github, unless we have extra time at the end of the semester. In that case we will attempt to create an MSI installer.
+
+
